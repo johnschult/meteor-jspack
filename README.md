@@ -1,5 +1,7 @@
 # johnschult:jspack
 
+[![Build Status](https://travis-ci.org/johnschult/meteor-jspack.svg)](https://travis-ci.org/johnschult/meteor-jspack)
+
 ## Installing
 ```
 meteor add johnschult:jspack
