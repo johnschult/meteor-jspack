@@ -13,6 +13,9 @@ Struct.pack('2c', ['a', 'b']);
 
 Struct.unpack('2c', [97, 98]);
 // => ['a', 'b']
+
+Struct.calcLength('A')
+// => 1
 ```
 
 ## Additional Documentation
