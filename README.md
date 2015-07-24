@@ -84,20 +84,20 @@ not be separated by whitespace, however.
 
 #### "A" format
 For the "A" format character, the count is interpreted as the size of the
-array, not a repeat count as for the other format characters; for example, "10A"
-means a single 10-octet array.  When packing, the Array is truncated or padded
+array, not a repeat count as for the other format characters; for example, `10A`
+means a single 10-octet `Array`.  When packing, the `Array` is truncated or padded
 with 0 bytes as appropriate to make it conform to the specified length.  When
-unpacking, the resulting Array always has exactly the specified number of bytes.
-As a special case, "0A" means a single, empty Array.
+unpacking, the resulting `Array` always has exactly the specified number of bytes.
+As a special case, `0A` means a single, empty `Array`.
 
 #### "s" format
 For the "s" format character, the count is interpreted as the size of the
 string, not a repeat count as for the other format characters; for example,
-"10s" means a single 10-byte string, while "10c" means 10 characters.  When
+`10s` means a single 10-byte string, while `10c` means 10 characters.  When
 packing, the string is truncated or padded with 0 bytes as appropriate to make
 it conform to the specified length.  When unpacking, the resulting string always
-has exactly the specified number of bytes.  As a special case, "0s" means a
-single, empty string (while "0c" means 0 characters).
+has exactly the specified number of bytes.  As a special case, `0s` means a
+single, empty string (while `0c` means 0 characters).
 
 #### Byte order
 By default, C numbers are represented in network (or big-endian) byte order.
@@ -128,15 +128,15 @@ not "correctly" decode bytes in the range 128-255, since that range is subject
 to multiple interpretations.  Caveat coder!
 
 3. The 8 "integer" codes clip their encoded values to the minima and maxmima
-of their respective types:  If you invoke Struct.Pack('b', [-129]), for
-instance, the result will be [128], which is the octet encoding of -128,
-which is the minima of a signed char.  Similarly, Struct.Pack('h', [-32769])
-returns [128, 0].  Fractions are truncated.
+of their respective types:  If you invoke `Struct.pack('b', [-129])`, for
+instance, the result will be `[128]`, which is the octet encoding of `-128`,
+which is the minima of a signed char.  Similarly, `Struct.pack('h', [-32769])`
+returns `[128, 0]`.  Fractions are truncated.
 
 4. Since JavaScript doesn't natively support 32-bit floats, whenever a float
 is stored, the source JavaScript number must be rounded.  This module applies
 correct rounding during this process.  Numbers with magnitude greater than or
-equal to 2**128-2**103 round to either positive or negative Infinity. The
+equal to `2**128 - 2**103` round to either positive or negative Infinity. The
 rounding algorithm assumes that JavsScript is using exactly 64 bits of
 floating point precision; 128-bit floating point will result in subtle errors.
 
