@@ -110,7 +110,7 @@ byte order of the packed data, according to the following table:
         >     | big-endian
         !     | network (= big-endian)
 
-  If the first character is not one of these, "!" is assumed.
+  If the first character is not one of these, `!` is assumed.
 
 ### Notes
 
